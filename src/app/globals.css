@@ -1,0 +1,158 @@
+@import "tailwindcss";
+
+@theme {
+  /* Primary brand palette */
+  --color-navy: #061e40;
+  --color-light-grey: #f6f6f4;
+
+  /* Secondary supporting palette */
+  --color-dark-blue: #134074;
+  --color-grey-azure: #8da9c4;
+  --color-light-azure: #eef4f8;
+  --color-warm-alabaster: #f9f6f0;
+  --color-champagne: #c5a880;
+
+  /* Fonts */
+  --font-heading: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-open-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-accent: var(--font-cinzel), ui-serif, serif;
+
+  --container-8xl: 90rem;
+}
+
+body {
+  background: var(--color-light-grey);
+  color: var(--color-navy);
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/*
+ * Bento card — uniform size, white at rest. On hover the whole surface
+ * swaps to the brand's dark-blue theme (background + text + icon chip
+ * all transition together), the card lifts, and the border/shadow pick
+ * up a champagne edge. All color ownership lives here (not in Tailwind
+ * utility classes) so hover state can't be fought by equal-specificity
+ * utilities.
+ */
+.bento-card {
+  position: relative;
+  height: 100%;
+  border-radius: 1.5rem;
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.bento-card:hover,
+.bento-card:focus-within {
+  transform: translateY(-6px);
+}
+
+.bento-card__surface {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  border-radius: inherit;
+  background: #ffffff;
+  border: 1px solid color-mix(in srgb, var(--color-navy) 10%, transparent);
+  box-shadow: 0 1px 2px color-mix(in srgb, var(--color-navy) 4%, transparent);
+  transition:
+    background-color 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+    border-color 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+    box-shadow 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.bento-card:hover .bento-card__surface,
+.bento-card:focus-within .bento-card__surface {
+  background: var(--color-dark-blue);
+  border-color: color-mix(in srgb, var(--color-champagne) 55%, transparent);
+  box-shadow: 0 28px 48px -24px color-mix(in srgb, var(--color-navy) 45%, transparent);
+}
+
+.bento-card__icon {
+  background: var(--color-light-azure);
+  color: var(--color-navy);
+  transition:
+    transform 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+    background-color 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+    color 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.bento-card:hover .bento-card__icon,
+.bento-card:focus-within .bento-card__icon {
+  transform: scale(1.08) rotate(-4deg);
+  background: color-mix(in srgb, var(--color-light-grey) 16%, transparent);
+  color: var(--color-champagne);
+}
+
+.bento-card__title {
+  color: var(--color-navy);
+  transition: color 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.bento-card:hover .bento-card__title,
+.bento-card:focus-within .bento-card__title {
+  color: var(--color-light-grey);
+}
+
+.bento-card__desc {
+  color: var(--color-dark-blue);
+  transition:
+    color 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+    opacity 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+    transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.bento-card:hover .bento-card__desc,
+.bento-card:focus-within .bento-card__desc {
+  color: var(--color-light-azure);
+}
+
+/*
+ * Description is hidden until hover, but only on devices that can
+ * actually hover (mouse/trackpad). Touch devices have no reliable
+ * hover state, so the description stays visible there — otherwise
+ * mobile users would never see it.
+ */
+@media (hover: hover) and (pointer: fine) {
+  .bento-card__desc {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  .bento-card:hover .bento-card__desc,
+  .bento-card:focus-within .bento-card__desc {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bento-card:hover,
+  .bento-card:focus-within {
+    transform: none;
+  }
+
+  .bento-card:hover .bento-card__icon,
+  .bento-card:focus-within .bento-card__icon {
+    transform: none;
+  }
+}
