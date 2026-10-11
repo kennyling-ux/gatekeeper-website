@@ -18,16 +18,20 @@ export function Hero() {
               ))}
             </div>
             <span className="font-heading text-xs font-semibold text-navy">
-              Trusted by students across 14 countries
+              1,000+ students guided
+              <span className="hidden sm:inline"> &middot; nearly 10 years</span>
             </span>
           </div>
 
-          <Eyebrow className="mt-6 block">Independent Education Consulting</Eyebrow>
-          <h1 className="mt-4 max-w-xl font-heading text-5xl font-bold leading-[1.02] tracking-tight text-navy sm:text-6xl lg:text-[4rem]">
-            Clarity for your <span className="text-dark-blue">next step</span>.
+          <Eyebrow className="mt-6 block">Education &amp; Study Abroad Consulting</Eyebrow>
+          <h1 className="mt-4 max-w-2xl font-heading text-5xl font-bold leading-[1.02] tracking-tight text-navy sm:text-6xl lg:text-[3.5rem]">
+            Explore with clarity.{" "}
+            <span className="text-dark-blue lg:block">Decide with purpose.</span>
           </h1>
-          <p className="mt-5 max-w-md text-lg leading-relaxed text-dark-blue">
-            Personal, honest guidance from consultation to landing day.
+          <p className="mt-5 max-w-lg text-lg leading-relaxed text-dark-blue">
+            Independent advice on choosing the right course, university, and
+            country &mdash; in Malaysia or abroad &mdash; with support from
+            your first consultation to your first day on campus.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-4">

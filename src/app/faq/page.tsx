@@ -16,8 +16,8 @@ export default function FaqPage() {
     <>
       <PageHero
         eyebrow="FAQ"
-        title="Straight answers, tailored to you."
-        description="It depends on your background, goals, and budget — but here's the general shape of it."
+        title="Your questions, answered."
+        description="Every student's situation is different. Here are clear, general answers to the questions we hear most — and we'll go into your specifics during a free consultation."
       />
 
       <section className="py-16 sm:py-20">

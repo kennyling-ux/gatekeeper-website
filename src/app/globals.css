@@ -126,25 +126,6 @@ h6 {
   color: var(--color-light-azure);
 }
 
-/*
- * Description is hidden until hover, but only on devices that can
- * actually hover (mouse/trackpad). Touch devices have no reliable
- * hover state, so the description stays visible there — otherwise
- * mobile users would never see it.
- */
-@media (hover: hover) and (pointer: fine) {
-  .bento-card__desc {
-    opacity: 0;
-    transform: translateY(4px);
-  }
-
-  .bento-card:hover .bento-card__desc,
-  .bento-card:focus-within .bento-card__desc {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .bento-card:hover,
   .bento-card:focus-within {

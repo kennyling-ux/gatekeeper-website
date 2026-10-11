@@ -13,7 +13,7 @@ export function WhatsAppFloatButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with Gatekeeper on WhatsApp"
-      className="fixed bottom-6 right-5 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-navy text-light-grey shadow-[0_12px_30px_-10px_rgba(6,30,64,0.5)] sm:bottom-8 sm:right-8"
+      className="fixed bottom-6 right-5 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-navy text-light-grey ring-2 ring-champagne/80 shadow-[0_12px_30px_-10px_rgba(6,30,64,0.5)] sm:bottom-8 sm:right-8"
       animate={
         shouldReduceMotion
           ? undefined

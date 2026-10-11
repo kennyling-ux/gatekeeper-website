@@ -24,7 +24,7 @@ export function WhatsAppCtaCard() {
       </Button>
       <div className="mt-6 flex items-center gap-2 border-t border-white/10 pt-6 text-xs text-light-azure/80">
         <Clock size={16} />
-        Typically replies within one business day
+        Enquiry form messages are answered within one business day
       </div>
     </div>
   );

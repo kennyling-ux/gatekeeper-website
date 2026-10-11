@@ -25,7 +25,7 @@ const pillars = [
   {
     icon: Airplane,
     title: "Visa & Pre-Departure",
-    description: "Step-by-step, until you land overseas.",
+    description: "Student visa help and a pre-departure briefing before you fly.",
     tone: "accent" as const,
     span: "compact" as const,
   },

@@ -1,7 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const runtime = "edge";
-export const alt = "Gatekeeper — Independent Education Consulting";
+export const alt = "Gatekeeper — Education & Study Abroad Consulting";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -22,13 +21,13 @@ export default async function OpengraphImage() {
         }}
       >
         <div style={{ fontSize: 28, letterSpacing: 6, color: "#c5a880", textTransform: "uppercase" }}>
-          Independent Education Consulting
+          Education & Study Abroad Consulting
         </div>
         <div style={{ display: "flex", fontSize: 96, fontWeight: 700, marginTop: 24 }}>
           Gatekeeper
         </div>
         <div style={{ display: "flex", fontSize: 32, marginTop: 24, color: "#eef4f8", maxWidth: 900 }}>
-          Clarity for every step of the journey to university.
+          Explore with clarity. Decide with purpose.
         </div>
       </div>
     ),

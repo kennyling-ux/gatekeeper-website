@@ -2,19 +2,18 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { List, X, WhatsappLogo } from "@phosphor-icons/react/ssr";
 import { NAV_LINKS, buildWhatsAppUrl, WHATSAPP_DEFAULT_MESSAGE } from "@/lib/constants";
 
+const subscribeNoop = () => () => {};
+
 export function MobileNavDrawer() {
   const [open, setOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  // true on the client, false during SSR — the portal needs document.body.
+  const mounted = useSyncExternalStore(subscribeNoop, () => true, () => false);
 
   // Lock background scroll while the drawer is open.
   useEffect(() => {

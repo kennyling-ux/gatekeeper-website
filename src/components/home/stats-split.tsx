@@ -5,14 +5,8 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/motion/reveal";
 import { StaggerGroup, StaggerItem } from "@/components/motion/stagger-group";
 import { Button } from "@/components/ui/button";
-import { serviceFeatureImages, founderPortrait } from "@/lib/data/images";
-
-const stats = [
-  { value: "14", label: "Countries Covered" },
-  { value: "6", label: "Step Process" },
-  { value: "QEAC", label: "#14731 Certified" },
-  { value: "100%", label: "Free Consultation" },
-];
+import { founderAvatar, founderCandid } from "@/lib/data/images";
+import { AUTHORITY_STATS } from "@/lib/constants";
 
 export function StatsSplit() {
   return (
@@ -22,8 +16,8 @@ export function StatsSplit() {
           <div className="absolute -inset-4 -z-10 hidden rounded-[3rem] border border-champagne/30 lg:block" />
           <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[2.5rem] bg-light-azure sm:aspect-[5/4] lg:aspect-[4/5]">
             <Image
-              src={serviceFeatureImages.visa}
-              alt="Student prepared for departure"
+              src={founderCandid}
+              alt="Gatekeeper's founder, smiling"
               fill
               sizes="(min-width: 1024px) 40vw, 90vw"
               className="object-cover"
@@ -40,16 +34,16 @@ export function StatsSplit() {
 
         <Reveal delay={0.1}>
           <SectionHeading
-            eyebrow="Who We Are"
-            title="An independent consultant, not a call centre."
-            description="Every student has unique gifts and potential. The goal isn't just admission — it's the right fit."
+            eyebrow="Independent & Personal"
+            title="An independent education consultant, not a call centre."
+            description="One consultant, start to finish — no hand-offs and no sales targets. Every student has unique gifts and potential, so the goal isn't just admission. It's the right fit."
           />
 
           <div className="mt-6 flex items-center gap-3">
             <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full bg-light-azure">
               <Image
-                src={founderPortrait}
-                alt="Gatekeeper founder"
+                src={founderAvatar}
+                alt=""
                 fill
                 sizes="44px"
                 className="object-cover"
@@ -57,7 +51,7 @@ export function StatsSplit() {
             </div>
             <p className="text-sm text-dark-blue">
               <span className="font-heading font-semibold text-navy">Founder</span> &middot;
-              Qualified Education Agent Counsellor
+              QEAC Certified &middot; Certified British Council UK Trained Counsellor
             </p>
           </div>
 
@@ -66,7 +60,7 @@ export function StatsSplit() {
           </Button>
 
           <StaggerGroup className="mt-10 grid grid-cols-2 gap-6 border-t border-navy/10 pt-8 sm:grid-cols-4 sm:gap-4">
-            {stats.map((stat) => (
+            {AUTHORITY_STATS.map((stat) => (
               <StaggerItem key={stat.label}>
                 <p className="font-heading text-2xl font-bold text-navy">{stat.value}</p>
                 <p className="mt-1 text-xs text-dark-blue">{stat.label}</p>

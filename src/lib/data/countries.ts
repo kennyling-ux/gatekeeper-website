@@ -1,32 +1,16 @@
+import { countryDetails } from "@/lib/data/country-details";
+
 export interface CountryRegion {
   region: string;
   countries: string[];
 }
 
-export const destinationRegions: CountryRegion[] = [
-  {
-    region: "Asia",
-    countries: ["Malaysia", "Singapore", "China", "South Korea"],
-  },
-  {
-    region: "Europe",
-    countries: [
-      "United Kingdom",
-      "Ireland",
-      "Germany",
-      "Hungary",
-      "Spain",
-      "Switzerland",
-    ],
-  },
-  {
-    region: "Oceania",
-    countries: ["Australia", "New Zealand"],
-  },
-  {
-    region: "North America",
-    countries: ["United States", "Canada"],
-  },
-];
+const regionOrder = ["Asia", "Europe", "Oceania", "North America"];
 
-export const allDestinations = destinationRegions.flatMap((r) => r.countries);
+export const destinationRegions: CountryRegion[] = regionOrder.map((region) => ({
+  region,
+  countries: countryDetails.filter((c) => c.region === region).map((c) => c.name),
+}));
+
+// Priority order, as set by the client.
+export const allDestinations = countryDetails.map((c) => c.name);

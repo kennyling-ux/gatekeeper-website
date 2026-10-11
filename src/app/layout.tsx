@@ -27,11 +27,11 @@ const cinzel = Cinzel({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Gatekeeper | Independent Education Consulting",
+    default: "Gatekeeper | Education & Study Abroad Consulting in Malaysia",
     template: "%s | Gatekeeper",
   },
   description:
-    "Independent education consulting for students and parents navigating university admissions, scholarships, and study-abroad pathways worldwide.",
+    "Independent education and study abroad consulting in Malaysia. Course, university, and country advice, applications, scholarships, and student visas, from your first consultation to your first day on campus.",
   icons: {
     icon: [
       { url: "/icon-32.png", sizes: "32x32", type: "image/png" },

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { ShieldCheck } from "@phosphor-icons/react/ssr";
-import { heroImage, serviceFeatureImages, founderPortrait } from "@/lib/data/images";
+import { heroImage, serviceFeatureImages, founderHeadshot } from "@/lib/data/images";
 
 export function HeroCollage() {
   return (
@@ -26,8 +26,8 @@ export function HeroCollage() {
       </div>
       <div className="relative overflow-hidden rounded-[2rem] rounded-tl-lg bg-light-azure">
         <Image
-          src={founderPortrait}
-          alt="Education counsellor"
+          src={founderHeadshot}
+          alt="Gatekeeper's founder"
           fill
           sizes="(min-width: 1024px) 16vw, 30vw"
           className="object-cover"

@@ -28,14 +28,22 @@ export function DestinationExplorer() {
               transition={{ duration: 0.35 }}
               className="absolute inset-0"
             >
-              <Image
-                src={selected.image}
-                alt={selected.name}
-                fill
-                sizes="(min-width: 640px) 40vw, 100vw"
-                className="object-cover"
-                priority
-              />
+              {selected.image ? (
+                <Image
+                  src={selected.image}
+                  alt={selected.name}
+                  fill
+                  sizes="(min-width: 640px) 40vw, 100vw"
+                  className="object-cover"
+                  priority
+                />
+              ) : (
+                <div className="flex h-full items-center justify-center bg-gradient-to-br from-dark-blue to-navy">
+                  <span className="font-heading text-3xl font-bold text-light-grey/90">
+                    {selected.name}
+                  </span>
+                </div>
+              )}
             </motion.div>
           </div>
 
@@ -77,19 +85,24 @@ export function DestinationExplorer() {
                 isActive ? "ring-champagne" : "ring-transparent hover:ring-navy/20",
               )}
             >
-              <Image
-                src={country.image}
-                alt={country.name}
-                fill
-                sizes="120px"
-                className={cn(
-                  "object-cover transition-opacity",
-                  isActive ? "opacity-100" : "opacity-70 group-hover:opacity-90",
-                )}
-              />
+              {country.image ? (
+                <Image
+                  src={country.image}
+                  alt=""
+                  fill
+                  sizes="120px"
+                  className={cn(
+                    "object-cover transition-opacity",
+                    isActive ? "opacity-100" : "opacity-70 group-hover:opacity-90",
+                  )}
+                />
+              ) : (
+                <div className="absolute inset-0 bg-gradient-to-br from-dark-blue to-navy" />
+              )}
               <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/10 to-transparent" />
-              <span className="absolute inset-x-1 bottom-1 truncate font-heading text-[10px] font-semibold text-light-grey sm:text-xs">
-                {country.name}
+              <span className="absolute inset-x-1 bottom-1.5 font-heading text-[11px] font-semibold leading-tight text-light-grey sm:text-xs">
+                <span className="sm:hidden">{country.shortName ?? country.name}</span>
+                <span className="hidden sm:inline">{country.name}</span>
               </span>
             </button>
           );

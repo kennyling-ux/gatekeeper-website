@@ -1,15 +1,14 @@
-import Image from "next/image";
 import { CheckCircle } from "@phosphor-icons/react/ssr";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { BadgeFrame } from "@/components/ui/badge-frame";
+import { CredentialBadges as BadgeArtwork } from "@/components/ui/credential-badges";
 import { StaggerGroup, StaggerItem } from "@/components/motion/stagger-group";
 
 const credentials = [
   "Qualified Education Agent Counsellor (QEAC #14731)",
   "ICEF-Certified Education Counsellor",
   "ICEF Australia Specialist",
-  "British Council UK Knowledge-Trained Counsellor",
+  "Certified British Council UK Trained Counsellor",
 ];
 
 export function CredentialsBadges() {
@@ -36,25 +35,8 @@ export function CredentialsBadges() {
           </StaggerGroup>
         </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-6">
-          <BadgeFrame className="h-28 w-28 sm:h-32 sm:w-32">
-            <Image
-              src="/badges/qeac-dark.png"
-              alt="ICEF Certified — QEAC #14731"
-              width={580}
-              height={580}
-              className="h-full w-full object-contain"
-            />
-          </BadgeFrame>
-          <BadgeFrame className="h-28 w-28 sm:h-32 sm:w-32">
-            <Image
-              src="/badges/qeac-light.png"
-              alt="ICEF Certified Australia Specialist — QEAC #14731"
-              width={580}
-              height={580}
-              className="h-full w-full object-contain"
-            />
-          </BadgeFrame>
+        <div className="flex justify-center">
+          <BadgeArtwork size="lg" />
         </div>
       </Container>
     </section>

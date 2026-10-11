@@ -1,8 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
-import { EnvelopeSimple, WhatsappLogo } from "@phosphor-icons/react/ssr";
+import { EnvelopeSimple, InstagramLogo, LinkedinLogo, WhatsappLogo } from "@phosphor-icons/react/ssr";
 import { Container } from "@/components/ui/container";
-import { NAV_LINKS, buildWhatsAppUrl, WHATSAPP_DEFAULT_MESSAGE, WHATSAPP_DISPLAY } from "@/lib/constants";
+import {
+  NAV_LINKS,
+  SOCIAL_LINKS,
+  buildWhatsAppUrl,
+  WHATSAPP_DEFAULT_MESSAGE,
+  WHATSAPP_DISPLAY,
+} from "@/lib/constants";
+
+const socials = [
+  { href: SOCIAL_LINKS.linkedin, label: "LinkedIn", Icon: LinkedinLogo },
+  { href: SOCIAL_LINKS.instagram, label: "Instagram", Icon: InstagramLogo },
+].filter((social) => social.href);
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
@@ -19,10 +30,26 @@ export function SiteFooter() {
             className="h-6 w-auto"
           />
           <p className="mt-5 max-w-xs text-sm leading-relaxed text-light-azure">
-            Independent education consulting for students and parents
-            navigating university admissions and study-abroad pathways with
+            Independent education and study abroad consulting for students
+            and parents choosing a course, university, and country with
             clarity and confidence.
           </p>
+          {socials.length > 0 ? (
+            <div className="mt-6 flex gap-3">
+              {socials.map(({ href, label, Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Gatekeeper on ${label}`}
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-light-grey/85 transition-colors hover:border-champagne hover:text-champagne"
+                >
+                  <Icon size={20} weight="fill" />
+                </a>
+              ))}
+            </div>
+          ) : null}
         </div>
 
         <div>
@@ -70,7 +97,7 @@ export function SiteFooter() {
       <div className="border-t border-white/10">
         <Container className="flex flex-col-reverse items-center justify-between gap-3 py-6 text-xs text-light-grey/60 sm:flex-row">
           <p>&copy; {year} Gatekeeper. All rights reserved.</p>
-          <p>QEAC #14731 &middot; ICEF Certified Counsellor</p>
+          <p>QEAC #14731 &middot; ICEF Certified &middot; British Council UK Trained</p>
         </Container>
       </div>
     </footer>

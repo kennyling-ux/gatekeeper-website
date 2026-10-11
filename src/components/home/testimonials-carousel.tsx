@@ -91,7 +91,7 @@ export function TestimonialsCarousel({ items }: { items: Testimonial[] }) {
         </motion.div>
       </div>
 
-      <div className="mt-6 flex items-center justify-center gap-2">
+      <div className="mt-4 flex items-center justify-center">
         {items.map((item, i) => (
           <button
             key={item.outcome}
@@ -99,11 +99,15 @@ export function TestimonialsCarousel({ items }: { items: Testimonial[] }) {
             onClick={() => goTo(i)}
             aria-label={`Show testimonial ${i + 1}`}
             aria-current={i === index}
-            className={cn(
-              "h-2 rounded-full transition-all",
-              i === index ? "w-6 bg-navy" : "w-2 bg-navy/20",
-            )}
-          />
+            className="flex h-11 w-8 items-center justify-center"
+          >
+            <span
+              className={cn(
+                "h-2 rounded-full transition-all",
+                i === index ? "w-6 bg-navy" : "w-2 bg-navy/20",
+              )}
+            />
+          </button>
         ))}
       </div>
     </div>

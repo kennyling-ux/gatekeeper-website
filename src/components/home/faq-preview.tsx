@@ -13,8 +13,8 @@ export function FaqPreview() {
       <Container className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
         <SectionHeading
           eyebrow="Common Questions"
-          title="Straight answers, tailored to you."
-          description="It depends on your background, goals, and budget. Here's what comes up most."
+          title="Your questions, answered."
+          description="Every student's situation is different, but these are the questions we hear most often."
         />
 
         <StaggerGroup className="divide-y divide-navy/10">
